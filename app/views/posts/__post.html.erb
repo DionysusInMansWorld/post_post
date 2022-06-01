@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-sm-12 col-lg-8 card bg-light text-dark post">
+    <div class="row title">
+      <div class="col-8 text-left">
+        标题
+      </div>
+      <div class="col-4 text-right">
+        id: <%= post.id %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-10">
+        <div class="card bg-light text-dark">
+          <div class="card-body">
+            <%= post.content %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-right">
+        <% if !current_user.nil? && current_user.id == post.user_id %>
+          <%= link_to "删除", post, method: :delete, class: "text-danger",
+                                      data: { confirm: "You sure?" } %>
+        <% end %>
+        <% if exist_user? %>
+          <a href="#postpost<%= post.id %>" data-toggle="collapse">回复</a>
+        <% end %>
+      </div>
+    </div>
+    <% if exist_user? %>
+      <div id="postpost<%= post.id %>" class="row collapse">
+        <div class="col-12 reply">
+          <% post.replies.each do |reply| %>
+            <div class="card bg-light text-dark">
+              <div class="card-body">
+                <%= reply.content %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-12">
+          <%= form_for(@reply) do |f| %>
+            <div class="form-group reply-form">
+              <%= f.text_area :content, class: 'form-control' %>
+
+              <%= hidden_field_tag :post_id, post.id %>
+
+              <%= f.submit "提交", class: "btn btn-primary offset-11 col-1" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

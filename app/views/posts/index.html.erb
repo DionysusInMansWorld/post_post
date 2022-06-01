@@ -1,0 +1,15 @@
+<% provide(:title, 'Post列表') %>
+
+<%= paginate @posts %>
+
+<ul class="users">
+  <% @posts.each do |post| %>
+    <li>
+      <%= "ID: #{post.id} Name: #{post.title}" %>
+      | <%= link_to "delete", post, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= paginate @posts %>

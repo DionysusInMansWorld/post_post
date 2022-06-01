@@ -1,0 +1,17 @@
+<% provide(:title, "首页") %>
+<% provide(:root, "active") %>
+
+<div class="alert alert-primary" role="alert">
+  <div>
+  <h4 class="alert-heading">这里是PostPost的首页.</h4>
+  <hr>
+  <p>
+    默认使用cookie令牌(没有推送流).<br/>
+    可以注册获取推送流和对串的控制.<br/>
+  </p>
+  <% unless is_cookie? %>
+    <%= link_to "获取饼干", cookie_path, class: "btn btn-primary", method: :post %>
+  <% else %>
+    <%= link_to "删除饼干", cookie_path, class: "btn btn-danger", method: :delete %>
+  <% end %>
+</div>

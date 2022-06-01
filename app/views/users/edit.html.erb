@@ -1,0 +1,24 @@
+<% provide(:title, "编辑") %>
+<% provide(:dropdown, "active") %>
+
+<div class="title">
+  <h1>编辑用户信息</h1>
+</div>
+<div class="row">
+  <div class="col-10 offset-1 col-xl-6 offset-xl-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "编辑账户", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

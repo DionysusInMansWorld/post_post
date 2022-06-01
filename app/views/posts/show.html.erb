@@ -1,0 +1,61 @@
+<% provide(:title, @post.title) %>
+
+<% if exist_user? %>
+  <div class="row">
+    <div class="col-10 offset-1 col-xl-6 offset-xl-3">
+      <%= form_for(@reply, class: "from-group") do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <%= f.label :reply %>
+        <%= f.text_area :content, placeholder: "编写回复", class: "from-control" %>
+
+        <%= f.hidden_field :post_id, value: @post.id%>
+
+        <%= f.submit "发布", class: "btn btn-primary offset-4 col-4" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class="row mt-2">
+  <div class="col-12 col-xl-8 offset-xl-2">
+    <div class="card text-dark">
+      <div class="card-header bg-primary text-light">
+        <% if current_user == @post.user %>
+          <%= link_to "删除", @post, method: :delete, class: "btn btn-danger",
+                                    data: { confirm: "确定删除吗?" } %>
+        <% end %>
+        <%= @post.title %>
+      </div>
+      <div class="card-body">
+        <%= @post.content %>
+      </div>
+      <div class="card-footer"><small><%= @post.created_at %></small></div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-12 col-xl-8 offset-xl-2">
+    <%= paginate @replies %>
+  </div>
+</div>
+
+<% @replies.each_with_index do |r, i|%>
+  <div class="row mt-3">
+    <div class="col-12 col-xl-8 offset-xl-2">
+      <div class="card text-dark">
+        <div class="card-header bg-primary text-light"><%= "回复 #{i + @offset}"%></div>
+        <div class="card-body">
+          <%= r.content %>
+        </div>
+        <div class="card-footer"><small><%= r.created_at %></small></div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row mt-3">
+  <div class="col-12 col-xl-8 offset-xl-2">
+    <%= paginate @replies %>
+  </div>
+</div>

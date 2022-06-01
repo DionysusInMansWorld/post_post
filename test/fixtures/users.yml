@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+michael:
+  name: Michael
+  password_digest: <%= User.digest('password') %>
+  state: 1
+
+archer:
+  name: Sterling Archer
+  password_digest: <%= User.digest('password') %>
+  state: 3
+
+other:
+  name: XXX
+  remember_digest: <%= User.digest('password') %>
+  state: 2
+
+havent_got_a_post:
+  name: Haven't got
+  remember_digest: <%= User.digest('password') %>
+  state: 2

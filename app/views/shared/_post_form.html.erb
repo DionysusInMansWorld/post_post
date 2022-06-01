@@ -1,0 +1,12 @@
+<%= form_for(@post, class: "from-group") do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.label :title %>
+  <%= f.text_field :title, placeholder: "填写标题", class: "from-control" %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content, placeholder: "编写新串", class: "from-control" %>
+
+  <%= f.hidden_field :topic_id, value: @topic.id %>
+
+  <%= f.submit "发布", class: "btn btn-primary offset-4 col-4" %>
+<% end %>

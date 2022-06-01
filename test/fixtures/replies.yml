@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+most_recent:
+  content: "Yes"
+  created_at: <%= Time.zone.now %>
+
+most_oldest:
+  content: "Test"
+  created_at: <%= 100.years.ago %>

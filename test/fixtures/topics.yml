@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+main:
+  id: 1
+  name: "综合"
+
+other:
+  id: 2
+  name: "其他"

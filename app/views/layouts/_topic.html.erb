@@ -1,0 +1,27 @@
+<% topic_id = yield(:topic_id) %>
+
+<% if yield(:topic) == "active" %>
+  <nav>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <%= link_to "Flow", topics_path, class: "nav-link " + if topic_id.empty?
+          "active"
+        else
+          ""
+        end %>
+      </li>
+
+      <% @topics[1..].each do |topic| %>
+        <li class="nav-item">
+          <% if topic_id.empty?%>
+            <%= link_to topic.name, topic, class: "nav-link"%>
+          <% elsif topic.id == topic_id.to_i %>
+            <%= link_to topic.name, topic, class: "nav-link active" %>
+          <% else %>
+            <%= link_to topic.name, topic, class: "nav-link"%>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+<% end %>

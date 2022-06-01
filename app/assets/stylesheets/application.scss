@@ -1,0 +1,125 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+@import "bootstrap";
+
+* {
+  box-sizing: border-box;
+}
+
+#logo {
+  color: rgba(255, 255, 255, 0.89);
+
+  &:hover {
+    color: white;
+  }
+}
+
+#users-dropdown>li>a {
+  color: rgba(255, 255, 255, 0.8);
+
+  &:hover {
+    color: white;
+  }
+}
+
+#body {
+  margin-top: 10px;
+}
+
+footer {
+  margin-top: 40px;
+  &>.border {
+    border-top: rgba(150, 150, 150, 1) solid 1px;
+  }
+}
+
+pre.debug_dump {
+  border: 1px solid gray;
+  background-color: lightgray;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 10px;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+input {
+  height: auto !important;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  .form-control {
+    color: red;
+    background-color: lightpink;
+  }
+}
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid lightgray;
+  }
+}
+
+.post {
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 40px;
+}
+
+.reply {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.reply-form {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.btn {
+  margin-bottom: 0px;
+}
+
+.btn-primary {
+  margin-bottom: 0px;
+}
+
+.post-form {
+  margin-bottom: 40px;
+}
+
+a {
+  text-decoration: none
+}

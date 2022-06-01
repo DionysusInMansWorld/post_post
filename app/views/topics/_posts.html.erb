@@ -1,0 +1,19 @@
+<% if exist_user? %>
+  <div class="row">
+    <div class="col-10 offset-1 col-xl-6 offset-xl-3">
+      <section class="post-form">
+        <%= render 'shared/post_form' %>
+      </section>
+    </div>
+  </div>
+<% end %>
+
+<%= paginate @posts %>
+ 
+<ol class="list-group">
+  <% @posts.each do |post| %>
+    <%= render post %>
+  <% end %>
+</ol>
+
+<%= paginate @posts %>
